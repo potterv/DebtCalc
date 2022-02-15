@@ -37,7 +37,7 @@ class CalcTest {
 
     @Test
     void result() {
-       assertEquals(calc.resultSumm(),25132.69,0.01);
+       assertEquals(calc.resultSumm(),25132.7);
     }
 
     @Test
