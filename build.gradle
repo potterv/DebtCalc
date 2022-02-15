@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
     id 'java'
+    id 'edu.sc.seis.launch4j' version '2.4.6'
 }
 
 group 'org.example'
@@ -13,6 +14,9 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+// https://mvnrepository.com/artifact/junit/junit
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
@@ -20,3 +24,40 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    doFirst {
+        manifest {
+//            if (!configurations.implementation.isEmpty()) {
+            attributes(
+                    'Class-Path': configurations.runtimeClasspath.collect { it.toURI().toString() }.join(' '),
+                    'Main-Class': 'CalcDebt')
+//            }
+        }
+    }
+}
+
+//create a single Jar with all dependencies
+//task fatJar(type: Jar) {
+//    manifest {
+//        attributes 'Implementation-Title': 'Gradle Jar File Example',
+//                'Implementation-Version': version,
+//                'Main-Class': "controllers.Main"
+//    }
+//    baseName = project.name + '-all'
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//    with jar
+//}
+//
+//
+//launch4j {
+//    headerType="gui"
+//    mainClassName = 'CalcDebt'
+//    outfile = "CalcDebt.exe"
+////    icon = "${projectDir}/src/main/resources/images/icon.ico"
+//    jar = '../libs/CalcDebt-1.0-SNAPSHOT.jar'
+//}
