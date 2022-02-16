@@ -1,4 +1,6 @@
-import calculate.Calc;
+package ru.gov.pfr.sev.calculate;
+
+import ru.gov.pfr.sev.calculate.Calc;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

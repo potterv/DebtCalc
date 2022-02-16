@@ -1,8 +1,8 @@
-package inteface;
+package ru.gov.pfr.sev.ui.console;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.gov.pfr.sev.ui.console.InDataCalc;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

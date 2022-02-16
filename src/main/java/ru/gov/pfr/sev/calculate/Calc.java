@@ -1,4 +1,4 @@
-package calculate;
+package ru.gov.pfr.sev.calculate;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

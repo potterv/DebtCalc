@@ -1,4 +1,4 @@
-package inteface;
+package ru.gov.pfr.sev.ui.console;
 
 import java.util.Scanner;
 

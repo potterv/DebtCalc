@@ -1,4 +1,4 @@
-package controllers;
+package ru.gov.pfr.sev.ui.controllers;
 
 
 import org.junit.BeforeClass;
@@ -10,8 +10,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import ru.gov.pfr.sev.ui.controllers.CalcDebtController;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 @RunWith(JUnit4.class)
 class CalcDebtControllerTest {
     private static BindingResult mockedBindingResult;
