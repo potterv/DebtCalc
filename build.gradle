@@ -6,7 +6,8 @@ plugins {
 
 group 'ru.gov.pfr.sev'
 version '1.0-SNAPSHOT'
-
+//mainClassName = "ru.gov.pfr.sev.CalcDebtConsole"
+sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     mavenCentral()
@@ -30,6 +31,12 @@ dependencies {
 // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.3.12.RELEASE'
 
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.1'
+// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
+
+
 }
 
 test {
@@ -46,7 +53,7 @@ jar {
 //            if (!configurations.implementation.isEmpty()) {
             attributes(
                     'Class-Path': configurations.runtimeClasspath.collect { it.toURI().toString() }.join(' '),
-                    'Main-Class': 'CalcDebt')
+                    'Main-Class': 'ru.gov.pfr.sev.CalcDebtConsole')
 //            }
         }
     }
@@ -63,12 +70,12 @@ jar {
 //    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 //    with jar
 //}
-//
-//
-//launch4j {
-//    headerType="gui"
-//    mainClassName = 'CalcDebt'
-//    outfile = "CalcDebt.exe"
-////    icon = "${projectDir}/src/main/resources/images/icon.ico"
-//    jar = '../libs/CalcDebt-1.0-SNAPSHOT.jar'
-//}
+
+
+launch4j {
+    headerType="console"
+    mainClassName = 'ru.gov.pfr.sev.CalcDebtConsole'
+    outfile = "CalcDebt.exe"
+//    icon = "${projectDir}/src/main/resources/images/icon.ico"
+    jar = '../libs/DebtCalc-1.0-SNAPSHOT.jar'
+}
