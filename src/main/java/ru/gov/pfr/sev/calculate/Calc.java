@@ -35,12 +35,12 @@ public class Calc {
     public void setColDaysInMonth(int colDaysInMonth) {
 
         this.colDaysInMonth = colDaysInMonth;
-        logger.info("������� ���������� ���� � ������ " + colDaysInMonth);
+        logger.info("Количество дней в месяце " + colDaysInMonth);
     }
 
     public void setColPolMonth(int colPolMonth) {
         this.colPolMonth = colPolMonth;
-        logger.info("������� ���������� ������ ������� " + colPolMonth);
+        logger.info("Количество полных месяцев " + colPolMonth);
     }
 
     public int getColDasInMonthPol() {
@@ -50,7 +50,7 @@ public class Calc {
     public void setColDasInMonthPol(int colDaysInMonthPol) {
 
         this.colDasInMonthPol = colDaysInMonthPol;
-        logger.info("������� ���������� ������ ���� � ������ " + colDaysInMonthPol);
+        logger.info("Количество полных дней в месяце " + colDaysInMonthPol);
     }
 /*
     ����� ��������� ������ ����� �� �������
@@ -62,7 +62,7 @@ public class Calc {
         double value = (this.summ/this.colDasInMonthPol)*this.getColDaysInMonth()+(this.summ*this.colPolMonth);
         this.result =  new BigDecimal(value);
         this.result = result.setScale(2, RoundingMode.HALF_UP);
-        logger.info("������� ���������: " + this.result.doubleValue());
+        logger.info("Получен результат: " + this.result.doubleValue());
         return this.result.doubleValue();
     }
 

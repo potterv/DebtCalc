@@ -57,4 +57,9 @@ class InDataCalcTest {
 
         assertThat(text, equalTo(originalString));
     }
+
+  @Test
+  void setColDaysInMonth() {
+      inDataCalc.setDateStartEnd();
+  }
 }
