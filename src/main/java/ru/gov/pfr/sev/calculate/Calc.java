@@ -29,18 +29,18 @@ public class Calc {
     public void setSumm(double summ) {
 
         this.summ = summ;
-        logger.info("Введена сумма: " + summ);
+        logger.info("Р’С‹ РІРІРµР»Рё СЃСѓРјРјСѓ: " + summ);
     }
 
     public void setColDaysInMonth(int colDaysInMonth) {
 
         this.colDaysInMonth = colDaysInMonth;
-        logger.info("Введено количество дней в месяце " + colDaysInMonth);
+        logger.info("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " + colDaysInMonth);
     }
 
     public void setColPolMonth(int colPolMonth) {
         this.colPolMonth = colPolMonth;
-        logger.info("Введено количество полных месяцев " + colPolMonth);
+        logger.info("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + colPolMonth);
     }
 
     public int getColDasInMonthPol() {
@@ -50,19 +50,19 @@ public class Calc {
     public void setColDasInMonthPol(int colDaysInMonthPol) {
 
         this.colDasInMonthPol = colDaysInMonthPol;
-        logger.info("Введено количество полных дней в месяце " + colDaysInMonthPol);
+        logger.info("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " + colDaysInMonthPol);
     }
 /*
-    Метод выполняет расчет суммы по формуле
-       результат = (сумма * количество полных дней в месяце * на количество не полных дней в месяце)
-                 + (сумма * количество полных месяцев)
-     с округлением до двух знаков после запятой
+    пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+       пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ = (пїЅпїЅпїЅпїЅпїЅ * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ * пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ)
+                 + (пїЅпїЅпїЅпїЅпїЅ * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+     пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 */
     public double resultSumm(){
         double value = (this.summ/this.colDasInMonthPol)*this.getColDaysInMonth()+(this.summ*this.colPolMonth);
         this.result =  new BigDecimal(value);
         this.result = result.setScale(2, RoundingMode.HALF_UP);
-        logger.info("Получен результат: " + this.result.doubleValue());
+        logger.info("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + this.result.doubleValue());
         return this.result.doubleValue();
     }
 

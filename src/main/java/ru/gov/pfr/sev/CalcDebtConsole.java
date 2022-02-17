@@ -8,7 +8,7 @@ import ru.gov.pfr.sev.ui.console.InDataCalc;
 public class CalcDebtConsole {
     private static final Logger logger = LogManager.getLogger(CalcDebtConsole.class);
     public static void main(String[] args) {
-        logger.info("Начат расчет");
+        logger.info("РќР°С‡Р°Р»Рѕ");
         Calc calc =new Calc();
         InDataCalc inDataCalc = new InDataCalc();
         boolean count = true;
@@ -21,20 +21,20 @@ public class CalcDebtConsole {
 
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                logger.warn("Некорректный формат ввода параметра");
+                logger.warn("РќРµРµРѕСЂСЂРµРєС‚РЅС‹ РїР°СЂР°РјРµС‚СЂ");
                 logger.error(e.getMessage());
-                System.out.println("posledniy vvedennyi parametr ne korreknyi");
+                System.out.println("РџРѕСЃР»РµРґРЅРёР№ РІРІРµРґРµРЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ РЅРµРєРѕСЂСЂРµРєС‚РµРЅ");
             } finally {
 
                try {
-                   System.out.print(" REZULTAT : " + calc.resultSumm());
+                   System.out.print(" Р РµР·СѓР»СЊС‚Р°С‚ : " + calc.resultSumm());
                }catch (NumberFormatException nfe){
                    nfe.getMessage();
-                   System.out.print(" Odin iz parametrov ne korekten" );
+                   System.out.print(" РћРґРёРЅ РёР· РїР°СЂР°РјРµС‚СЂРѕРІ РЅРµРєРѕСЂСЂРµРєС‚РµРЅ" );
                }
                 System.out.println("");
                 if (!inDataCalc.isCount()){
-                    logger.info("Расчет завершен");
+                    logger.info("Р—Р°РІРµСЂС€РµРЅРѕ");
                     break;
                 }
             }

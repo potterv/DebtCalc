@@ -12,7 +12,7 @@ public class InDataCalc {
     private Scanner sc = new Scanner(System.in);
 
     public double getSumm() {
-        System.out.println("Vvedite summu v vide xxx,xx:");
+        System.out.println("Ведите сумму xxx,xx:");
         try {
             this.summ = sc.nextDouble();
             return this.summ;
