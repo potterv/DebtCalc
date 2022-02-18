@@ -76,8 +76,10 @@ jar {
 
 launch4j {
     headerType="console"
-    mainClassName = 'ru.gov.pfr.sev.CalcDebtConsole'
+     mainClassName = 'ru.gov.pfr.sev.CalcDebtConsole'
     outfile = "CalcDebt.exe"
 //    icon = "${projectDir}/src/main/resources/images/icon.ico"
     jar = '../libs/DebtCalc-1.0-SNAPSHOT.jar'
+
+
 }

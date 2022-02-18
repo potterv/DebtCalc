@@ -1,5 +1,7 @@
 package ru.gov.pfr.sev.ui.console;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
@@ -15,7 +17,8 @@ public class InDataCalc {
   private Scanner sc = new Scanner(System.in);
 
   public void setDateStartEnd() {
-    System.out.println("Ведите дату начала");
+         System.out.println("Введите дату начала");
+
     localDateStart = LocalDate.parse(sc.nextLine());
     System.out.println("Введите дату окончания");
     localDateEnd = LocalDate.parse(sc.nextLine());
@@ -32,7 +35,9 @@ public class InDataCalc {
   }
 
   public double getSumm() {
-    System.out.println("Ведите сумму xxx,xx:");
+
+      System.out.println("Ведите сумму xxx,xx:");
+
     try {
       this.summ = sc.nextDouble();
       return this.summ;
@@ -61,7 +66,9 @@ public class InDataCalc {
   }
 
   public boolean isCount() {
-    System.out.println("ПРОДОЛЖИТЬ (0 - НЕТ, 1 - ДА) :");
+
+      System.out.println("Продолжить 1-да, 0-нет: ");
+
     try {
       this.count = sc.nextInt() != 0;
       return this.count;

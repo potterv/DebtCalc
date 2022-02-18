@@ -7,18 +7,22 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import ru.gov.pfr.sev.calculate.Calc;
 
 @Controller
 public class CalcDebtController {
 
 @GetMapping("/index")
     public String index(Model model){
-
+        Calc calc = new Calc();
+        model.addAttribute("calc",calc);
+        model.addAttribute("resulSumm", calc.resultSumm());
     return "index";
 }
-@PostMapping("/calc")
-    public String calc(Model model){
+@PostMapping("/index")
+    public String calc(Calc calc,BindingResult result, Model model){
 
-    return "calc";
+
+    return "index";
 }
 }
