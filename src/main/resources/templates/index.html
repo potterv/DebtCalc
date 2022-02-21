@@ -8,9 +8,12 @@
 </head>
 <body>
 <div id = "form">
-    <form class = "formmain" th:action="@{/index}" method="get"  th:object="${calc}" >
+    <form class = "formmain" th:action="@{/index}" method="post"    th:object="${calc}">
         <label>  <h3>Ведите сумму</h3>
-        <input type="text" name="summ" class = "summ"  placeholder="0000,00">
+        <input type="number" name="summ" class = "summ"  placeholder="000000000.00"
+               step = "0.01" min="0" max="1000000000.00"
+
+        >
         </label>
         <label> <h3>Введите начальную дату </h3>
         <input type="date" name="dateStart" class = "dateStart" >
@@ -22,7 +25,8 @@
     </form>
     <div>
         <label> <h2>Результат:</h2></label>
-        <h1 th:utext="${resulSumm}"></h1>
+        <h1 th:utext="${summ}"></h1>
+        <span th:utext="${summ}"></span>
     </div>
 </div>
 </body>
