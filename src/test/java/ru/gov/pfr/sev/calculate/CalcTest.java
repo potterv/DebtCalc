@@ -1,8 +1,11 @@
 package ru.gov.pfr.sev.calculate;
 
+
 import ru.gov.pfr.sev.calculate.Calc;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,9 +16,13 @@ class CalcTest {
     public void setUp() {
         calc = new Calc();
         calc.setSumm(7082.85);
-        calc.setColPolMonth(3);
-        calc.setColDaysInMonth(17);
-        calc.setColDasInMonthPol(31);
+        calc.setStartDate(LocalDate.parse("2021-10-15"));
+        calc.setEndDate(LocalDate.parse("2022-01-31"));
+        calc.setDateStartEnd();
+//        calc.setColPolMonth(3);
+//        calc.setColDaysInMonth(17);
+//        calc.setColDasInMonthPol(31);
+
 
     }
 
@@ -23,6 +30,7 @@ class CalcTest {
     void setSumm() {
         calc.setSumm(7082.85);
         assertEquals(calc.getSumm(),7082.85);
+
     }
 
     @Test
@@ -39,7 +47,7 @@ class CalcTest {
 
     @Test
     void result() {
-       assertEquals(calc.resultSumm(),25132.7);
+       assertEquals(calc.resultSumm(),25132.69);
     }
 
     @Test

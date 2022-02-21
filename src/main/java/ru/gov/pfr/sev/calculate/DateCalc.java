@@ -1,4 +1,5 @@
 package ru.gov.pfr.sev.calculate;
 
-public class DateCalc {
+public interface DateCalc {
+    public void setDateStartEnd();
 }
