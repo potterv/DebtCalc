@@ -55,7 +55,7 @@ jar {
 //            if (!configurations.implementation.isEmpty()) {
             attributes(
                     'Class-Path': configurations.runtimeClasspath.collect { it.toURI().toString() }.join(' '),
-                    'Main-Class': 'ru.gov.pfr.sev.CalcDebtConsole')
+                    'Main-Class': 'ru.gov.pfr.sev.CalcDebtApplication')
 //            }
         }
     }
@@ -76,7 +76,7 @@ jar {
 
 launch4j {
     headerType="console"
-     mainClassName = 'ru.gov.pfr.sev.CalcDebtConsole'
+     mainClassName = 'ru.gov.pfr.sev.CalcDebtApplication'
     outfile = "CalcDebt.exe"
 //    icon = "${projectDir}/src/main/resources/images/icon.ico"
     jar = '../libs/DebtCalc-1.0-SNAPSHOT.jar'

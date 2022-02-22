@@ -10,7 +10,7 @@ import java.time.Period;
 
 public class Calc {
     private double summ;
-    private  int colDaysInMonth;
+    private int colDaysInMonth;
     private int colDaysInMonthPol;
     private int colPolMonth;
     private DateCakcImpements dateCalc = new DateCakcImpements();
@@ -19,12 +19,15 @@ public class Calc {
 
     public void setDateStartEnd() {
 
-        period = Period.between(startDate, endDate);
-        this.colPolMonth = period.getMonths();
+        this.period = Period.between(startDate, endDate);
+        this.colPolMonth = this.period.getMonths();
+        this.colDaysInMonthPol = this.startDate.lengthOfMonth();
+        if (this.colPolMonth != 0) {
+            this.colDaysInMonth = this.colDaysInMonthPol - (this.startDate.getDayOfMonth() - 1);
+        } else {
+            this.colDaysInMonth = this.endDate.getDayOfMonth() - (this.startDate.getDayOfMonth() - 1);
+        }
 
-        this.colDaysInMonthPol = startDate.lengthOfMonth();
-
-        this.colDaysInMonth =this.colDaysInMonthPol-(startDate.getDayOfMonth()-1);
 
     }
 
@@ -36,6 +39,14 @@ public class Calc {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
     }
 
     public double getSumm() {
@@ -69,7 +80,7 @@ public class Calc {
         logger.info("Количество полных месяцев " + colPolMonth);
     }
 
-    public int getColDasInMonthPol() {
+    public int getColDaysInMonthPol() {
         return colDaysInMonthPol;
     }
 
@@ -78,15 +89,16 @@ public class Calc {
         this.colDaysInMonthPol = colDaysInMonthPol;
         logger.info("Количество полных дней в месяце " + colDaysInMonthPol);
     }
-/*
-    ����� ��������� ������ ����� �� �������
-       ��������� = (����� * ���������� ������ ���� � ������ * �� ���������� �� ������ ���� � ������)
-                 + (����� * ���������� ������ �������)
-     � ����������� �� ���� ������ ����� �������
-*/
-    public double resultSumm(){
-        double value = (this.summ/this.colDaysInMonthPol)*this.getColDaysInMonth()+(this.summ*this.colPolMonth);
-        this.result =  new BigDecimal(value);
+
+    /*
+        ����� ��������� ������ ����� �� �������
+           ��������� = (����� * ���������� ������ ���� � ������ * �� ���������� �� ������ ���� � ������)
+                     + (����� * ���������� ������ �������)
+         � ����������� �� ���� ������ ����� �������
+    */
+    public double resultSumm() {
+        double value = (this.summ / this.colDaysInMonthPol) * this.getColDaysInMonth() + (this.summ * this.colPolMonth);
+        this.result = new BigDecimal(value);
         this.result = result.setScale(2, RoundingMode.HALF_UP);
 //        logger.info("Получен результат: " + this.result.doubleValue());
         return this.result.doubleValue();
