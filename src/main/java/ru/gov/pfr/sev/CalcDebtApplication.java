@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "ru.gov.pfr.sev" })
+//@ComponentScan(basePackages = { "ru.gov.pfr.sev" })
 @EnableAutoConfiguration
 
 public class CalcDebtApplication {

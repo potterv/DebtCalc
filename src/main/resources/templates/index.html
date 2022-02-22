@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
 <head>
     <meta charset="UTF-8">
     <title>CalcDebt</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
 <!--    <link rel="stylesheet" type="text/css" href="/css/style.css}"/>-->
 </head>
 <body>
 <div id = "form">
-    <form class = "formmain" th:action="@{/index}" th:object="${calc}" method="post"  >
+    <form class = "formmain" th:action="@{/index}" method="get"  >
         <label>  <h3>Ведите сумму</h3>
-        <input type="number" name="summ" class = "summ"  placeholder="00000000.00" step="0.01" min="0" max="100000000"  th:field="*{summ}">
+        <input type="number" name="summ" class = "summ"  placeholder="00000000.00" step="0.01" min="0" max="100000000.00"  >
         </label>
         <label> <h3>Введите начальную дату </h3>
-        <input type="date" name="dateStart" class = "dateStart" placeholder="ГГГГ-мм-дд" >
+        <input type="date" name="dateStart" class = "dateStart" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" >
         </label>
         <label> <h3>Введите конечную дату</h3>
-        <input type="date" name="dateEnd" class = "dateEnd" placeholder="ГГГГ-мм-дд" >
+        <input type="date" name="dateEnd" class = "dateEnd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" >
         </label>
         <input type="submit" name="submit" value="Расчитать" class="submit">
     </form>
     <div>
         <label> <h2>Результат:</h2></label>
-<!--        <h1 th:utext="${resultSumm}"></h1>-->
+        <h1> <span th:utext="${rezult}"></span> </h1>
+
     </div>
 </div>
 </body>

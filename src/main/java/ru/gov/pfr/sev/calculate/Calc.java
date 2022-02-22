@@ -55,7 +55,7 @@ public class Calc {
     public void setSumm(double summ) {
 
         this.summ = summ;
-        logger.info("Вы ввели сумму: " + summ);
+//        logger.info("Вы ввели сумму: " + summ);
     }
 
     public void setColDaysInMonth(int colDaysInMonth) {
@@ -88,7 +88,7 @@ public class Calc {
         double value = (this.summ/this.colDaysInMonthPol)*this.getColDaysInMonth()+(this.summ*this.colPolMonth);
         this.result =  new BigDecimal(value);
         this.result = result.setScale(2, RoundingMode.HALF_UP);
-        logger.info("Получен результат: " + this.result.doubleValue());
+//        logger.info("Получен результат: " + this.result.doubleValue());
         return this.result.doubleValue();
     }
 
