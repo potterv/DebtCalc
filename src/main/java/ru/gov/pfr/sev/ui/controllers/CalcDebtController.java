@@ -32,8 +32,10 @@ public class CalcDebtController {
         model.addAttribute("dateStart", calc.getStartDate() );
         model.addAttribute("dateEnd", calc.getEndDate());
 
-        model.addAttribute("colDaysInMonthPol", calc.getColDaysInMonthPol());
-        model.addAttribute("colDaysInMonth", calc.getColDaysInMonth());
+        model.addAttribute("getColDaysInStartMonth", calc.getColDaysInStartMonth());
+        model.addAttribute("getColDaysInStartMonthPol", calc.getColDaysInStartMonthPol());
+        model.addAttribute("getColDaysInEndMonth", calc.getColDaysInEndMonth());
+        model.addAttribute("getColDaysInEndMonthPol", calc.getColDaysInEndMonthPol());
         model.addAttribute("ColPolMonth", calc.getColPolMonth());
 
         model.addAttribute("rezult", calc.resultSumm());

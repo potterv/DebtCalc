@@ -19,7 +19,7 @@ public class CalcDebtConsole {
                 inDataCalc.setDateStartEnd();
                 calc.setSumm(inDataCalc.getSumm());
                 calc.setColDasInMonthPol(inDataCalc.getColDaysInMonthPol());
-                calc.setColDaysInMonth(inDataCalc.getColDaysInMonth());
+                calc.setColDaysInStartMonth(inDataCalc.getColDaysInMonth());
                 calc.setColPolMonth(inDataCalc.getColPolMonth());
                 System.out.print(" Результат : " + calc.resultSumm());
 

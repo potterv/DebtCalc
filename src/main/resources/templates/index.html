@@ -7,20 +7,21 @@
     <!--    <link rel="stylesheet" type="text/css" href="/css/style.css}"/>-->
 </head>
 <body>
-<div class = "top">
+<div class="top">
     <img th:attr="src=@{img/img.png}" alt="Italian Trulli">
 </div>
 <div id="form">
     <form class="formmain" th:action="@{/index}" method="get">
         <label><h3>Ведите сумму</h3>
             <input type="number" name="summ" class="summ" placeholder="00000000.00" step="0.01" min="0"
-                   max="100000000.00">
+                   max="100000000.00" autofocus>
         </label>
         <label><h3>Введите начальную дату </h3>
             <input type="date" name="dateStart" class="dateStart" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
         </label>
         <label><h3>Введите конечную дату</h3>
-            <input type="date" name="dateEnd" class="dateEnd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+            <!--            <label class ="worning" >* в дате указывать последний день месяца (28 или 29 или 30 или 31)</label>-->
+            <input type="date" name="dateEnd" class="dateEnd" required pattern="[0-9]{4}-[0-9]{2}-0-9]{2}">
         </label>
         <input type="submit" name="submit" value="Расчитать" class="submit">
     </form>
@@ -40,12 +41,20 @@
     </div>
 
     <div>
-        <label><h5>Количество полных дней в месяце:</h5></label>
-        <h5><span th:utext="${colDaysInMonthPol}"></span></h5>
+        <label><h5>Количество полных дней в начальном месяце:</h5></label>
+        <h5><span th:utext="${getColDaysInStartMonthPol}"></span></h5>
     </div>
     <div>
-        <label><h5>Количество дней начисления в месяце:</h5></label>
-        <h5><span th:utext="${colDaysInMonth}"></span></h5>
+        <label><h5>Количество дней выплаты в начальном месяце:</h5></label>
+        <h5><span th:utext="${getColDaysInStartMonth}"></span></h5>
+    </div>
+    <div>
+        <label><h5>Количество полных дней в конечном месяце:</h5></label>
+        <h5><span th:utext="${getColDaysInEndMonthPol}"></span></h5>
+    </div>
+    <div>
+        <label><h5>Количество дней выплаты в конечном месяце:</h5></label>
+        <h5><span th:utext="${getColDaysInEndMonth}"></span></h5>
     </div>
     <div>
         <label><h5>Количество полных месяцев:</h5></label>
@@ -59,6 +68,13 @@
     <h1><span th:utext="${rezult}"></span></h1>
 
 </div>
+<div class="button">
 
+        <button name="log">
+            Открыть историю расчетов
+
+        </button>
+
+</div>
 </body>
 </html>
